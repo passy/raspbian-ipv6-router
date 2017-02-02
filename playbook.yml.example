@@ -1,0 +1,13 @@
+---
+
+- name: Ansible Playbook for setting up a brand new Raspberry Pi
+  hosts: pis
+  roles:
+    - pi
+      dhcp:
+        range: "172.24.1.50,172.24.1.150"
+      firewall:
+        mode: "tunnel"
+  remote_user: pi
+  become: yes
+  become_method: sudo
