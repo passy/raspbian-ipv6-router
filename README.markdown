@@ -4,7 +4,7 @@
 
 ## Preparing the SD Card
 
-- [Get Raspbian Jessie Lite](https://downloads.raspberrypi.org/raspbian_latest.torrent).
+- [Get Raspbian Jessie Lite](https://downloads.raspberrypi.org/raspbian_lite_latest.torrent).
   I used `2016-03-18` for this. Also, don't be a jerk, and use the Torrent
   option.
 - I use Lite because I don't even want to connect a monitor to the Pi and
