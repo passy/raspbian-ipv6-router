@@ -1,12 +1,7 @@
 wifi:
-  ip_address: "172.24.1.1/24"
-  channel: 6
-  ssid: "passy-pi"
-  passphrase: "raspberrypi"
+  ip_address: "172.25.1.1/24"
 dhcp:
-  range: "172.24.1.50,172.24.1.150"
+  range: "172.25.1.50,172.25.1.150"
 firewall:
   # Specify either 'tunnel' or 'dns'
   mode: "tunnel"
-  # Only relevant in 'dns' mode
-  force_dns: '185.51.194.194'

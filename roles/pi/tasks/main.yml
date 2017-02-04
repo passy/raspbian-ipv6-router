@@ -5,45 +5,6 @@
 - name: 'Upgrade APT to the lastest packages'
   apt: upgrade=safe
 
-# Set ip forwarding on in /proc and in the sysctl file and reload if necessary
-- name: ipv4 forward
-  sysctl: name="net.ipv4.ip_forward" value=1 sysctl_set=yes state=present reload=yes
-
-# Set up the firewall
-- name: install iptables-persistent for Debian
-  apt: pkg=iptables-persistent state=present
-  tags: firewall
-
-- name: copy rules.v4
-  template: src=rules.v4 dest=/etc/iptables/rules.v4
-  tags: firewall
-
-- name: copy rules.v6
-  template: src=rules.v6 dest=/etc/iptables/rules.v6
-  tags: firewall
-
-- name: enable netfilter-persistent on boot
-  service: name=netfilter-persistent enabled=yes
-  tags: firewall
-
-# Set up the WiFi hostspot
-
-- name: install hostapd
-  apt: pkg=hostapd state=present
-  tags: networking
-
-- name: set up hostapd
-  template: src=hostapd.conf dest=/etc/hostapd/hostapd.conf
-  tags: networking
-
-- name: set up hostapd default
-  copy: src=defaults_hostapd dest=/etc/default/hostapd
-  tags: networking
-
-- name: enable hostapd on boot
-  service: name=hostapd enabled=yes
-  tags: networking
-
 - name: install dnsmasq
   apt: pkg=dnsmasq state=present
   tags: networking
