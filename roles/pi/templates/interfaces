@@ -9,5 +9,8 @@ source-directory /etc/network/interfaces.d
 auto lo
 iface lo inet loopback
 
-iface eth0 inet manual
-iface wlan0 inet manual
+auto eth0
+iface eth0 inet static
+address {{ eth0.address }}
+netmask 255.255.255.0
+gateway {{ dhcp.router }}

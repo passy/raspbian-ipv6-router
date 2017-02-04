@@ -9,6 +9,10 @@
   apt: pkg=dnsmasq state=present
   tags: networking
 
+- name: install mosh
+  apt: pkg=mosh state=present
+  tags: networking
+
 - name: set up dnsmasq
   template: src=dnsmasq.conf dest=/etc/dnsmasq.conf
   tags: networking
@@ -17,10 +21,10 @@
   service: name=dnsmasq enabled=yes
   tags: networking
 
-- name: set up dhcpcd
-  template: src=dhcpcd.conf dest=/etc/dhcpcd.conf owner=root group=netdev mode=u=rw,g=rw,o=r
+- name: set up network interfaces
+  template: src=interfaces dest=/etc/network/interfaces
   tags: networking
 
-- name: set up network interfaces
-  copy: src=interfaces dest=/etc/network/interfaces
+- name: disable dhcpcd
+  service: name=dhcpcd enabled=nop
   tags: networking
