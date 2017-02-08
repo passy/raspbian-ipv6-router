@@ -2,6 +2,16 @@
 
 <img src="https://www.raspberrypi.org/wp-content/uploads/2015/08/raspberry-pi-logo.png" width=150 align=left>
 
+## Status
+
+This is what I use as DHCPv{4,6} server in my flat. It's doing an okay job.
+
+## Plan
+
+Since this is a Rasperry Pi, I'd like to make some use of the GPIO ports. Maybe
+show the number of devices on an LCD, or have an LED flash up if someone new
+gets a lease. Something like that, you know.
+
 ## Preparing the SD Card
 
 - [Get Raspbian Jessie Lite](https://downloads.raspberrypi.org/raspbian_lite_latest.torrent).
