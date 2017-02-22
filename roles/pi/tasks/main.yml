@@ -26,5 +26,5 @@
   tags: networking
 
 - name: disable dhcpcd
-  service: name=dhcpcd enabled=nop
+  service: name=dhcpcd enabled=no
   tags: networking
