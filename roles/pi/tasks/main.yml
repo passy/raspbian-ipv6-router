@@ -13,9 +13,11 @@
   apt: pkg=mosh state=present
   tags: networking
 
-- name: set up dnsmasq
+- name: set up dnsmasq config
   template: src=dnsmasq.conf dest=/etc/dnsmasq.conf
   tags: networking
+  notify:
+    - restart dnsmasq
 
 - name: enable dnsmasq on boot
   service: name=dnsmasq enabled=yes
