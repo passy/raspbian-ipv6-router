@@ -10,7 +10,12 @@ auto lo
 iface lo inet loopback
 
 auto eth0
+
 iface eth0 inet static
-address {{ eth0.address }}
-netmask 255.255.255.0
-gateway {{ dhcp.router }}
+  address {{ eth0.address }}
+  netmask 255.255.255.0
+  gateway {{ dhcp.router }}
+
+iface eth0 inet6 static
+  address {{ eth0.address6 }}
+  netmask 64

@@ -5,6 +5,18 @@
 - name: 'Upgrade APT to the lastest packages'
   apt: upgrade=safe
 
+- name: load ipv6 module
+  template: src=modules dest=/etc/modules
+  tags: networking
+
+- name: modprobe ipv6
+  modprobe: name=ipv6 state=present
+  tags: networking
+
+- name: set up network interfaces
+  template: src=interfaces dest=/etc/network/interfaces
+  tags: networking
+
 - name: install dnsmasq
   apt: pkg=dnsmasq state=present
   tags: networking
@@ -21,10 +33,6 @@
 
 - name: enable dnsmasq on boot
   service: name=dnsmasq enabled=yes
-  tags: networking
-
-- name: set up network interfaces
-  template: src=interfaces dest=/etc/network/interfaces
   tags: networking
 
 - name: disable dhcpcd
