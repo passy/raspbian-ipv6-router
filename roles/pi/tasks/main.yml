@@ -38,3 +38,11 @@
 - name: disable dhcpcd
   service: name=dhcpcd enabled=no
   tags: networking
+
+- name: install radvd
+  apt: pkg=radvd state=present
+  tags: networking
+
+- name: radvd config
+  template: src=radvd.conf dest=/etc/radvd.conf
+  tags: networking
