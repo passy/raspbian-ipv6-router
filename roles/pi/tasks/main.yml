@@ -39,10 +39,22 @@
   service: name=dhcpcd enabled=no
   tags: networking
 
+- sysctl:
+    name: net.ipv6.conf.all.forwarding
+    value: 1
+    state: present
+    tags: networking
+
 - name: install radvd
   apt: pkg=radvd state=present
   tags: networking
 
 - name: radvd config
   template: src=radvd.conf dest=/etc/radvd.conf
+  tags: networking
+  notify:
+    - restart radvd
+
+- name: enable radvd on boot
+  service: name=radvd enabled=yes
   tags: networking
