@@ -12,6 +12,9 @@ Since this is a Rasperry Pi, I'd like to make some use of the GPIO ports. Maybe
 show the number of devices on an LCD, or have an LED flash up if someone new
 gets a lease. Something like that, you know.
 
+Since I can't get native IPv6 from my ISP, I also want to use this as IPv6
+tunnel using [SixXS](https://www.sixxs.net/main/).
+
 ## Preparing the SD Card
 
 - [Get Raspbian Jessie Lite](https://downloads.raspberrypi.org/raspbian_lite_latest.torrent).
