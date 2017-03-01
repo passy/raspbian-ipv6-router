@@ -10,8 +10,7 @@
         local: "lan"
       eth0:
         address: "172.25.1.10"
-        network: "172.25.1.0"
-        broadcast: "172.25.1.255"
+        address6: "2a01:368:e000:8074::101"
   remote_user: pi
   become: yes
   become_method: sudo
