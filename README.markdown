@@ -13,7 +13,7 @@ show the number of devices on an LCD, or have an LED flash up if someone new
 gets a lease. Something like that, you know.
 
 Since I can't get native IPv6 from my ISP, I also want to use this as IPv6
-tunnel using [SixXS](https://www.sixxs.net/main/).
+tunnel using [Hurricane Electrict](https://tunnelbroker.net).
 
 ## Preparing the SD Card
 
