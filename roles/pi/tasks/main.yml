@@ -43,7 +43,6 @@
     name: net.ipv6.conf.all.forwarding
     value: 1
     state: present
-    tags: networking
 
 - name: install radvd
   apt: pkg=radvd state=present
