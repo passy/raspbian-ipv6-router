@@ -1,0 +1,7 @@
+tunnel:
+  address: "2001:::2"
+  netmask: 64
+  endpoint: "1.2.3.4"
+  local: "84.45.234.234"
+  ttl: 255
+  gateway: "2001:::1"

@@ -1,0 +1,10 @@
+---
+- template:
+    src: heipv6.conf
+    dest: /etc/network/interfaces.d
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+    notify:
+      - restart networking
