@@ -1,3 +1,4 @@
+enable_ipv6: 1
 tunnel:
   address: "2001:::2"
   netmask: 64
