@@ -1,4 +1,4 @@
-# Passy's Raspbian DHCP Server
+# Passy's Raspbian ADSL Router
 
 <img src="https://www.raspberrypi.org/wp-content/uploads/2015/08/raspberry-pi-logo.png" width=150 align=left>
 
