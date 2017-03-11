@@ -1,7 +1,0 @@
----
-- name: install network interface config
-  template: src=heipv6.conf dest=/etc/network/interfaces.d/heipv6.conf owner=root group=root mode='0644' backup=no
-  notify:
-    - restart networking
-  tags:
-    - ipv6
