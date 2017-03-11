@@ -2,18 +2,51 @@
 
 <img src="https://www.raspberrypi.org/wp-content/uploads/2015/08/raspberry-pi-logo.png" width=150 align=left>
 
-## Status
+## Setup
 
-This is what I use as DHCPv{4,6} server in my flat. It's doing an okay job.
+I bought
+a [DrayTek Vigor 130](http://www.draytek.co.uk/products/business/vigor-130)
+which is a bridge-only ADSL2+/VDSL modem mostly used in business environments (I
+like my cheap enterprise hardware) which is plugged into a normal ethernet
+switch which also connects my Raspberry Pi (provisioned by this repo) and
+a [UniFi® AP AC LITE](https://www.ubnt.com/unifi/unifi-ap-ac-lite/) for WiFi.
+
+Nothing special or particularly exciting about this. It looks roughly like this:
+
+```
++---------+     +---------+     +---------+
+|         |     |         |     |         |
+|  Modem  |     |  DHCP/  |     |  WiFi   |
+|         |     |  PPP    |     |         |
++--------++     +----|----+     ++--------+
+         |           |           |
+         |           |           |
+         |           |           |
+      +--v-----------v-----------v---+
+      |                              |
+      |            Switch            |
+      |                              |
+      +------------------------------+
+```
+
+The nice thing about this is that I get a lot of control about all the
+individual pieces and if something goes wrong I don't just have one big black
+box that I'll have to hope will answer my prayers.
+
+In particular, my previous modem had the annoying hard-coded behavior of
+retrying five times on connection issues and then require a hard reset.
+
+With my Raspberry Pi having this responsibility now, I get fine-grained
+control over what it will do in this situation.
 
 ## Plan
 
 Since this is a Rasperry Pi, I'd like to make some use of the GPIO ports. Maybe
 show the number of devices on an LCD, or have an LED flash up if someone new
-gets a lease. Something like that, you know.
+gets a lease. Now that it does PPP, I should definitely be able to show an LED
+with the connection status.
 
-Since I can't get native IPv6 from my ISP, I also want to use this as IPv6
-tunnel using [Hurricane Electrict](https://tunnelbroker.net).
+Crazy long-term goal: build my own LTE fallback when the ADSL goes down?
 
 ## Preparing the SD Card
 
