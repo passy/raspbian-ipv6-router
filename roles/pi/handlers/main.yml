@@ -3,3 +3,6 @@
 
 - name: restart radvd
   service: name=radvd state=restarted
+
+- name: restart networking
+  service: name=networking state=restarted

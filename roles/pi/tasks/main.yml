@@ -17,7 +17,11 @@
 
 - name: set up network interfaces
   template: src=interfaces dest=/etc/network/interfaces
-  tags: networking
+  tags:
+    - networking
+    - interfaces
+  notify:
+    - restart networking
 
 - name: install dnsmasq
   apt: pkg=dnsmasq state=present
