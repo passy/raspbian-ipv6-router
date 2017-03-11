@@ -1,0 +1,32 @@
+---
+- name: install ppp
+  apt: pkg=ppp state=present
+  tags: ppp
+
+- name: install ipconfig if-up rules
+  copy: src=444iptables dest=/etc/ppp/ip-up.d/444iptables owner=root group=root mode=0755
+  tags: ppp
+
+- name: install ppp peer
+  template: src=aquiss dest=/etc/ppp/peers/aquiss owner=root group=root mode=0644
+  tags: ppp
+  notify:
+    - restart pppoe
+
+- name: install chap-secrets
+  template: src=chap-secrets dest=/etc/ppp/chap-secrets owner=root group=root mode=0600
+  tags: ppp
+  notify:
+    - restart pppoe
+
+- name: install systemd service
+  copy: src=pppoe.service dest=/etc/systemd/system/pppoe.service owner=root group=root mode=0644
+  tags: ppp
+
+- name: enable systemd service
+  systemd: daemon_reload=yes enabled=yes name=pppoe.service state=started
+  tags: ppp
+
+- name: enable ip_forward for ipv4
+  sysctl: name=net.ipv4.ip_forward value=1 state=present
+  tags: ppp

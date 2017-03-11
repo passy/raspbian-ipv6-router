@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+# Add iptables rules for masquerading and MSS clamping
+iptables -t nat -A POSTROUTING -o ppp0 -j MASQUERADE
+iptables -I FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu

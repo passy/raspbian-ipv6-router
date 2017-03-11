@@ -1,0 +1,25 @@
+# Use Roaring Penguin's PPPoE implementation.
+plugin rp-pppoe.so eth0
+
+# Login settigns.
+user {{ppp.user}}
+noauth
+hide-password
+
+# Connection settings.
+persist
+maxfail 0
+holdoff 5
+
+# LCP settings.
+lcp-echo-interval 10
+lcp-echo-failure 3
+
+# PPPoE compliant settings.
+noaccomp
+default-asyncmap
+mtu 1458 # TODO: Consider raising to 1492
+ 
+# IP settings.
+noipdefault
+defaultroute

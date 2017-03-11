@@ -1,0 +1,11 @@
+[Unit]
+Description=PPPoE connection
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/usr/bin/pon aquiss
+ExecStop=/usr/bin/poff -a
+
+[Install]
+WantedBy=default.target
