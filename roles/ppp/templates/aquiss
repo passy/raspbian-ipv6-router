@@ -23,3 +23,6 @@ mtu 1458 # TODO: Consider raising to 1492
 # IP settings.
 noipdefault
 defaultroute
+
+# Enable IPv6
++ipv6 ipv6cp-use-ipaddr
