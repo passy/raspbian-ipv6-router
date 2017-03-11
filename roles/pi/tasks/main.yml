@@ -1,9 +1,11 @@
 ---
 - name: 'Update APT package cache'
   apt: update_cache=yes
+  tags: slow
 
 - name: 'Upgrade APT to the lastest packages'
   apt: upgrade=safe
+  tags: slow
 
 - name: load ipv6 module
   template: src=modules dest=/etc/modules

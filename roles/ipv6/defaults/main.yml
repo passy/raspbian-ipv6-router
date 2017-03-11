@@ -1,5 +1,6 @@
 enable_ipv6: 1
-tunnel:
+tunnelf:
+  prefix: "2001::"
   address: "2001:::2"
   netmask: 64
   endpoint: "1.2.3.4"
