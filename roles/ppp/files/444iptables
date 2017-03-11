@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # Add iptables rules for masquerading and MSS clamping
 iptables -t nat -A POSTROUTING -o ppp0 -j MASQUERADE
