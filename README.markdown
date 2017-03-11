@@ -87,3 +87,7 @@ ansible-playbook -i hosts playbook.yml
 This assumes that the hostname in `hosts` can be resolved and you can log in
 password-less via the `pi` user. It also expects the Pi to already have a
 working internet connection.
+
+## Resources
+
+- [https://blog.confirm.ch/using-pppoe-on-linux/](Using PPPoE on Linux)
