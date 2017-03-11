@@ -8,7 +8,7 @@ I bought
 a [DrayTek Vigor 130](http://www.draytek.co.uk/products/business/vigor-130)
 which is a bridge-only ADSL2+/VDSL modem mostly used in business environments (I
 like my cheap enterprise hardware) which is plugged into a normal ethernet
-switch which also connects my Raspberry Pi (provisioned by this repo) and
+switch which also connects my Raspberry Pi 2B (provisioned by this repo) and
 a [UniFi® AP AC LITE](https://www.ubnt.com/unifi/unifi-ap-ac-lite/) for WiFi.
 
 Nothing special or particularly exciting about this. It looks roughly like this:
