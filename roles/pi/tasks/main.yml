@@ -63,3 +63,19 @@
 - name: enable radvd on boot
   service: name=radvd enabled=yes
   tags: networking
+
+- name: install wide-dhcpv6
+  apt: pkg=wide-dhcpv6-client state=present
+  tags: networking
+
+- name: install wide-dhcpv6 config
+  template: src=dhcp6c.conf dest=/etc/wide-dhcpv6/dhcp6c.conf owner=root group=root mode=0644
+  tags:
+    - networking
+    - blerugh
+  notify:
+    - restart wide-dhcpv6
+
+- name: enable wide-dhcpcv6 on boot
+  service: name=wide-dhcpv6-client enabled=yes
+  tags: networking
