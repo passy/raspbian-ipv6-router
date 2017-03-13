@@ -70,9 +70,7 @@
 
 - name: install wide-dhcpv6 config
   template: src=dhcp6c.conf dest=/etc/wide-dhcpv6/dhcp6c.conf owner=root group=root mode=0644
-  tags:
-    - networking
-    - blerugh
+  tags: networking
   notify:
     - restart wide-dhcpv6
 
