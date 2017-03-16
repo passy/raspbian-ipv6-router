@@ -41,6 +41,10 @@ retrying five times on connection issues and then require a hard reset.
 With my Raspberry Pi having this responsibility now, I get fine-grained
 control over what it will do in this situation.
 
+A thing I was fascinated by that probably no one else cares about is
+that I could just plug my Modem into the switch and -- without specifying
+anything on my Raspberry Pi -- open a PPPoE connection to it. Layer 2, baby!
+
 ## Subnets and prefix allocation
 
 For a long time I was under the impression that I'd have to use something
