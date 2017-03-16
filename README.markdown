@@ -39,6 +39,28 @@ retrying five times on connection issues and then require a hard reset.
 With my Raspberry Pi having this responsibility now, I get fine-grained
 control over what it will do in this situation.
 
+## Subnets and prefix allocation
+
+For a long time I was under the impression that I'd have to use something
+like wide-dhcpcv6-client to get a /56 subnet assigned from my ISP. In actuality,
+the had assigned me a static /56 and the timeouts I was seeing in the log
+weren't an incorrect setup on my end, but simply indicating that they did
+not even have a server running on their end.
+
+The important bit that took me embarrassingly long to figure out was
+that I needed to set the static IPv6 address of my Pi to one within
+that subnet. I started just going with one of the addresses within
+the /64 of the IPv6 address I got assigned on `ppp0`. This worked in
+so far that I could actually make connections from my Pi, but
+none of my other devices on the network could access the internet.
+This is where my NAT-trained brain collided with the IPv6 realities
+where routing doesn't simply mean adding a magical default gateway
+and letting masquerading take care of it.
+
+From everything I've read online, it is rather unusual to have your
+/56 assigned to your account, so you may very likely have to set up WIDE-DHCPv6.
+See the resources section at the end of this page for more information.
+
 ## Plan
 
 Since this is a Rasperry Pi, I'd like to make some use of the GPIO ports. Maybe
@@ -91,3 +113,4 @@ working internet connection.
 ## Resources
 
 - [https://blog.confirm.ch/using-pppoe-on-linux/](Using PPPoE on Linux)
+- [https://major.io/2015/09/11/time-warner-road-runner-linux-and-large-ipv6-subnets/](Time Warner Road Runner, Linux, and large IPv6 subnets)
