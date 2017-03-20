@@ -7,6 +7,14 @@
   apt: upgrade=safe
   tags: slow
 
+- name: configure sshd
+  copy: src=sshd_config dest=/etc/sshd_config owner=root group=root mode=0644
+  notify:
+    - restart sshd
+  tags:
+    - networking
+    - ssh
+
 - name: load ipv6 module
   template: src=modules dest=/etc/modules
   tags: networking

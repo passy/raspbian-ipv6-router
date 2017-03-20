@@ -7,5 +7,5 @@
 - name: restart networking
   service: name=networking state=restarted
 
-- name: restart wide-dhcpv6
-  service: name=wide-dhcpv6-client state=restarted
+- name: restart sshd
+  service: name=ssh state=restarted
