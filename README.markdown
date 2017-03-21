@@ -118,5 +118,5 @@ working internet connection.
 
 ## Resources
 
-- [https://blog.confirm.ch/using-pppoe-on-linux/](Using PPPoE on Linux)
-- [https://major.io/2015/09/11/time-warner-road-runner-linux-and-large-ipv6-subnets/](Time Warner Road Runner, Linux, and large IPv6 subnets)
+- [Using PPPoE on Linux](https://blog.confirm.ch/using-pppoe-on-linux/)
+- [Time Warner Road Runner, Linux, and large IPv6 subnets](https://major.io/2015/09/11/time-warner-road-runner-linux-and-large-ipv6-subnets/)
