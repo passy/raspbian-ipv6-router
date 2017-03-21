@@ -8,4 +8,4 @@
   service: name=networking state=restarted
 
 - name: restart sshd
-  service: name=ssh state=restarted
+  service: name=sshd state=restarted
