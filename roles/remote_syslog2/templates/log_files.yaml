@@ -1,0 +1,11 @@
+files:
+{% for file in remote_syslog2.files %}
+  - {{ file }}
+{% endfor %}
+destination:
+  host: {{ remote_syslog2.host }}
+  port: {{ remote_syslog2.port }}
+  protocol: tls
+exclude_patterns:
+  - don't log on me
+
