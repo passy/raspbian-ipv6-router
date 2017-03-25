@@ -1,7 +1,7 @@
 ---
 
 - name: Check if remote_syslog2 is installed
-  command: dpkg-query -W remote_syslog2
+  command: dpkg-query -W remote-syslog2
   register: remote_syslog2_check_deb
   failed_when: remote_syslog2_check_deb.rc > 1
   changed_when: remote_syslog2_check_deb.rc == 1
@@ -18,6 +18,9 @@
   apt: deb="/tmp/remote_syslog2.deb"
   when: remote_syslog2_check_deb.rc == 1
   tags: remote_syslog2
+
+- name: Remove tmp deb
+  file: dest="/tmp/remote_syslog2.deb" state=absent
 
 - name: Install remote_syslog2 config
   template: src=log_files.yaml dest=/etc/log_files.yml mode=0644 owner=root
