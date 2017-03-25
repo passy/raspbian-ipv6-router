@@ -7,11 +7,10 @@
   changed_when: remote_syslog2_check_deb.rc == 1
   tags: remote_syslog2
 
-- name: Download remote_syslog2
-  get_url:
-    url="{{ remote_syslog2_download_path }}"
+- name: Copy remote_syslog2 deb
+  file:
+    src=remote-syslog2_0.19_arm5.deb
     dest="/tmp/remote_syslog2.deb"
-    checksum="{{ remote_syslog2_download_checksum }}"
   when: remote_syslog2_check_deb.rc == 1
   tags: remote_syslog2
 

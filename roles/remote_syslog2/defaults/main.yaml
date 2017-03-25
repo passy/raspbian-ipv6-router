@@ -1,7 +1,5 @@
 ---
 
-remote_syslog2_download_path: "https://github.com/papertrail/remote_syslog2/releases/download/v0.19/remote-syslog2_0.19_armhf.deb"
-remote_syslog2_download_checksum: "sha256:01f6092b41889e7e6d26070be751e05f67df21d196aa0f64a4eb9ebf307c879a"
 remote_syslog2:
   files:
     - /var/log/dpkg.log
