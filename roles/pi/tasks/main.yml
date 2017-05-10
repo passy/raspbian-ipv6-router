@@ -8,7 +8,7 @@
   tags: slow
 
 - name: configure sshd
-  copy: src=sshd_config dest=/etc/sshd_config owner=root group=root mode=0644
+  copy: src=sshd_config dest=/etc/ssh/sshd_config owner=root group=root mode=0644
   notify:
     - restart sshd
   tags:
