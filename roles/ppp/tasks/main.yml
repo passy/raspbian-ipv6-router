@@ -7,10 +7,6 @@
   sysctl: name=net.ipv4.ip_forward value=1 state=present
   tags: ppp
 
-- name: enable RA for ppp0
-  sysctl: name=net.ipv6.conf.ppp0.accept_ra value=2 state=present
-  tags: ppp
-
 - name: install ipconfig if-up rules
   copy: src=444iptables dest=/etc/ppp/ip-up.d/444iptables owner=root group=root mode=0755
   tags: ppp
