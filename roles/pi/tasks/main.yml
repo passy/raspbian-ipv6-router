@@ -7,6 +7,11 @@
   apt: upgrade=safe
   tags: slow
 
+- name: install additional packages
+  apt: pkg="{{ item }}" state=present
+  with_items: "{{ packages.extra }}"
+  tags: packages
+
 - name: configure sshd
   copy: src=sshd_config dest=/etc/ssh/sshd_config owner=root group=root mode=0644
   notify:
@@ -33,10 +38,6 @@
 
 - name: install dnsmasq
   apt: pkg=dnsmasq state=present
-  tags: networking
-
-- name: install mosh
-  apt: pkg=mosh state=present
   tags: networking
 
 - name: set up dnsmasq config

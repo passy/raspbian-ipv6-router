@@ -7,3 +7,7 @@ dhcp:
   range: "172.25.1.50,172.25.1.150"
   router: "127.25.1.1"
   local: "lan"
+packages:
+  extra:
+    - mosh
+    - tmux
