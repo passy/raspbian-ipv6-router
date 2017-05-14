@@ -18,7 +18,7 @@ lcp-echo-failure 3
 # PPPoE compliant settings.
 noaccomp
 default-asyncmap
-mtu 1458 # TODO: Consider raising to 1492
+mtu 1492
  
 # IP settings.
 noipdefault
