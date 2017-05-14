@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# I receive a default route with a expiration of 1800s via SLAAC which
+# I don't know how to avoid.
+ip -6 route del default
+ip -6 route add default via fe80:: dev ppp0 metric 1024 hoplimit 64

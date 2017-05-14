@@ -8,8 +8,11 @@
   tags: ppp
 
 - name: install ipconfig if-up rules
-  copy: src=444iptables dest=/etc/ppp/ip-up.d/444iptables owner=root group=root mode=0755
+  copy: src="{{ item }}" dest="/etc/ppp/ip-up.d/{{ item }}" owner=root group=root mode=0755
   tags: ppp
+  with_items:
+    - 444iptables
+    - 445ipv6route
 
 - name: install ppp peer
   template: src=aquiss dest=/etc/ppp/peers/aquiss owner=root group=root mode=0644
