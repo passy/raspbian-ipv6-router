@@ -11,11 +11,11 @@
       eth0:
         address: "172.25.1.10"
         address6: "2a01:368:e000:8074::101"
-    packages:
-      extra:
-        - mosh
-        - tmux
-        - exfat-fuse
+      packages:
+        extra:
+          - mosh
+          - tmux
+          - exfat-fuse
   remote_user: pi
   become: yes
   become_method: sudo
