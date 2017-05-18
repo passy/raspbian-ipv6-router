@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - role: docker-pi
+      docker_pi_group_users:
+        - root

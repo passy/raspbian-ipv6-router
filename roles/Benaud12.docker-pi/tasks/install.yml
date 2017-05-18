@@ -1,0 +1,17 @@
+---
+- name: Download docker install script
+  get_url:
+    url: https://get.docker.com
+    dest: /tmp/docker-install.sh
+    mode: "a+x"
+
+- name: Run install script
+  shell: /bin/sh /tmp/docker-install.sh
+
+- name: Remove temporary file
+  file:
+    path: /tmp/docker-install.sh
+    state: absent
+    
+- name: Set Docker to auto-start
+  service: name=docker enabled=true state=started
