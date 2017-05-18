@@ -1,4 +1,4 @@
-# Passy's Raspbian ADSL Router
+# Passy's Raspbian ADSL IPv6 Router
 
 <img src="https://www.raspberrypi.org/wp-content/uploads/2015/08/raspberry-pi-logo.png" width=150 align=left>
 
@@ -49,7 +49,7 @@ anything on my Raspberry Pi -- open a PPPoE connection to it. Layer 2, baby!
 
 For a long time I was under the impression that I'd have to use something
 like wide-dhcpcv6-client to get a /56 subnet assigned from my ISP. In actuality,
-the had assigned me a static /56 and the timeouts I was seeing in the log
+they had assigned me a static /56 and the timeouts I was seeing in the log
 weren't an incorrect setup on my end, but simply indicating that they did
 not even have a server running on their end.
 
