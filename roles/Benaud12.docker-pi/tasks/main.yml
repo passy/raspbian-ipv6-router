@@ -1,5 +1,13 @@
 ---
+- name: Check if docker-engine is installed
+  command: bash -c "dpkg-query -s docker-engine | grep 'install ok installed'"
+  register: docker_engine_installed
+  failed_when: docker_engine_installed.rc > 1
+  changed_when: docker_engine_installed.rc == 1
+
 - include: install.yml
+  tags: slow
+  when: docker_engine_installed.rc == 1
 
 - include: users.yml
   when: "{{ docker_pi_group_users|length > 0 }}"
