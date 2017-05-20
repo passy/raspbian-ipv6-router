@@ -1,0 +1,5 @@
+---
+
+- name: install docker-compose
+  pip: name=docker-compose virtualenv=/home/{{monitoring_user}}/docker-compose-ve state=present
+  tags: monitoring
