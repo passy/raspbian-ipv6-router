@@ -36,6 +36,15 @@
   notify:
     - restart networking
 
+- name: install hosts
+  template: src=hosts dest=/etc/hosts
+  tags:
+    - networking
+    - hosts
+  notify:
+    - restart networking
+    - restart dnsmasq
+
 - name: install dnsmasq
   apt: pkg=dnsmasq state=present
   tags: networking
