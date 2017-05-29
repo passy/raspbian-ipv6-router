@@ -3,3 +3,20 @@
 - name: install docker-compose
   pip: name=docker-compose virtualenv=/home/{{monitoring_user}}/docker-compose-ve state=present
   tags: monitoring
+
+- name: install liboping
+  apt: name=liboping0 state=present
+  tags: monitoring
+
+- name: checkout git config
+  git: repo=https://github.com/passy/rpi-monitoring-deployment dest=/home/{{ monitoring_user }}/monitoring-config update=true recursive=true
+  notify:
+    - restart docker-monitoring
+
+- name: update perms
+  file: dest=/home/{{ monitoring_user }}/monitoring-config owner={{ monitoring_user }} state=directory recurse=true
+
+- name: create systemd service
+  template: src=docker-monitoring.service dest=/etc/systemd/system/docker-monitoring.service backup=yes mode=0644
+  notify:
+    - restart docker-monitoring

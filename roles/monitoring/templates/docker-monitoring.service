@@ -1,0 +1,15 @@
+[Unit]
+Description=Docker Monitoring
+After=docker.service
+Requires=docker.service
+
+[Service]
+User={{ monitoring_user }}
+Group=users
+WorkingDirectory=/home/{{ monitoring_user }}/monitoring-config/
+ExecStartPre=-/home/{{ monitoring_user }}/docker-compose-ve/bin/docker-compose down
+ExecStart=/home/{{ monitoring_user }}/docker-compose-ve/bin/docker-compose up -d
+ExecStop=/home/{{ monitoring_user }}/docker-compose-ve/bin/docker-compose stop
+
+[Install]
+WantedBy=multi-user.target
