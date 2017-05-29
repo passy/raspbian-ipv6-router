@@ -1,0 +1,7 @@
+---
+
+- name: reload systemd
+  systemd: daemon_reload=yes
+
+- name: restart docker-monitoring
+  systemd: state=restarted name=docker-monitoring.service

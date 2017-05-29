@@ -20,3 +20,6 @@
   template: src=docker-monitoring.service dest=/etc/systemd/system/docker-monitoring.service backup=yes mode=0644
   notify:
     - restart docker-monitoring
+
+- name: enable systemd service
+  systemd: name=docker-monitoring.service enabled=true
